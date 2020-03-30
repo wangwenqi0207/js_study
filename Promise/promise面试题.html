@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //测试函数中的函数队列 是否其中一个有执行成功 如果有一个执行成功则执行方法函数
+    async function test(prom1, prom2, notice) {
+    // console.log(prom1, prom2, notice, 'prom1, prom2, notice')
+    let arr = []
+    //函数1 成功则将结果加入数组
+    await prom1.then(done=> {
+        console.log(done, 'done1')
+        if(done) {
+            arr.push(done)
+        }
+    }).catch(err=> {
+        console.log(err, 'err1')
+    })
+    //函数2 成功则将结果加入数组
+    await prom2.then(done=> {
+        console.log(done, 'done2')
+        if(done) {
+            arr.push(done)
+        }
+    }).catch(err=> {
+        console.log(err, 'err2')
+    })
+
+    //判断数组中是否有true
+    console.log(arr, 'arr status')
+    if(arr.includes(true)) {
+        return notice
+    }
+}
+    //执行判断
+    test(prom(true), prom(false), notice()).then(done=> {
+        console.log(done, 'test')
+    })
+
+    function prom(data) {
+        return new Promise((resolve, reject) => {
+            if(data===true) {
+                // console.log('success:' + data)
+                resolve(data)
+            } else {
+                // console.log('fail:' + data)
+                reject(data)
+            }
+        })
+    }
+    function notice(msg) {
+        return msg || '执行成功'
+    }
+</script>
+</html>

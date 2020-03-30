@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js函数</title>
+</head>
+<body>
+    <h1>js函数及函数属性</h1>
+    <p>箭头函数表达式</p>
+    <p></p>
+</body>
+<script>
+    //箭头函数表达式的语法比函数表达式更简洁，并且没有自己的this，arguments，super或new.target。
+    //箭头函数表达式更适用于那些本来需要匿名函数的地方，并且它不能用作构造函数。
+    // 当只有一个参数时，圆括号是可选的：
+    singleParam => { statements }
+
+    // 没有参数的函数应该写成一对圆括号。
+    () => { statements }
+
+
+
+    //eval() 函数会将传入的字符串当做 JavaScript 代码进行执行。
+    console.log(eval('2 + 2'));//4
+    console.log(eval('2 + 2') === eval('4')); //true
+
+
+
+    //isNaN() 函数用来确定一个值是否为NaN 。
+    function milliseconds(x) {
+    if (isNaN(x)) {
+        return 'Not a Number!';
+    }
+    return x * 1000;
+    }
+    console.log(milliseconds('hahaha')); //Not a Number!
+    console.log(milliseconds('2')); //2000
+
+</script>
+</html>

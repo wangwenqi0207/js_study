@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js其他内置对象</title>
+</head>
+<body>
+    <h1>js其他内置对象</h1>
+    <p>Number()对象</p>
+    <p>Math是一个内置数学对象</p>
+    <p>Date时间对象</p>
+    <p>JSON</p>
+</body>
+<script>
+    // Number 对象主要用于：如果参数无法被转换为数字，则返回 NaN。
+    // 在非构造器上下文中 (如：没有 new 操作符)，Number 能被用来执行类型转换。
+    console.log(Number('123')); //123
+
+
+    // Math 是一个内置对象， 它具有数学常数和函数的属性和方法。不是一个函数对象。
+    // Math 适用于 Number 类型。它不支持 BigInt
+
+
+    //Date 对象则基于 Unix Time Stamp，即自1970年1月1日（UTC）起经过的毫秒数。
+    new Date()
+
+
+    //JSON 是一种语法，用来序列化对象、数组、数值、字符串、布尔值和 null 。
+    //它基于 JavaScript 语法，但与之不同：JavaScript不是JSON，JSON也不是JavaScript。
+    //解析JSON字符串并返回对应的值，可以额外传入一个转换函数，用来将生成的值和其属性, 在返回之前进行某些修改。
+    JSON.parse()
+    //返回与指定值对应的JSON字符串，可以通过额外的参数, 控制仅包含某些属性, 或者以自定义方法来替换某些key对应的属性值。
+    JSON.stringify()
+    
+</script>
+</html>

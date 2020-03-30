@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js语句</title>
+</head>
+<body>
+    <h1>js语句</h1>
+    <p>try...catch语句标记要尝试的语句块，并指定一个出现异常时抛出的响应。</p>
+    <p>for 语句用于创建一个循环，它包含了三个可选的表达式</p>
+    <p>for ... in是为遍历对象属性而构建的，不建议与数组一起使用</p>
+    <p>for...of语句在可迭代对象（包括 Array，Map，Set，String，TypedArray，arguments 对象等等）</p>
+    <p>if...else 当指定条件为真，if 语句会执行一段语句。如果条件为假，则执行另一段语句。</p>
+    <p>while 语句可以在某个条件表达式为真的前提下，循环执行指定的一段代码，直到那个表达式不为真时结束循环。</p>
+    <p>switch 语句评估一个表达式，将表达式的值与case子句匹配，并执行与该情况相关联的语句。</p>
+    <p>continue 声明终止当前循环或标记循环的当前迭代中的语句执行，并在下一次迭代时继续执行循环。</p>
+    <p>break条件满足终止循环</p>
+</body>
+<script>
+    //try...catch语句标记要尝试的语句块，并指定一个出现异常时抛出的响应。
+    //try如果出现以下情况，catch就抛出一个异常问题所在
+    try {
+        nonExistentFunction();
+    }
+    catch(error) {
+    console.error(error);//RnonExistentFunction is not defined
+    }
+
+
+
+    //for 语句用于创建一个循环，它包含了三个可选的表达式
+    let str = "";
+        for (let i = 0; i < 9; i++) {
+        str = str + i;
+    }
+    console.log(str); // "012345678"
+
+
+
+    //for ... in是为遍历对象属性而构建的，不建议与数组一起使用
+    //遍历的是键值
+    var obj = {a:1, b:2, c:3};
+
+    for (var i in obj) {
+    console.log(i); //a b c  
+    }
+
+
+    //for...of语句在可迭代对象（包括 Array，Map，Set，String，TypedArray，arguments 对象等等）
+    //上创建一个迭代循环
+    const array1 = ['吉他', '钢琴', '小提琴'];
+
+     for (const i of array1) {
+        console.log(i); //吉他 钢琴 小提琴
+    }
+
+
+    //if...else 当指定条件为真，if 语句会执行一段语句。如果条件为假，则执行另一段语句。
+    function testNum(a) {
+    if (a > 0) {
+        return "对的";
+    } else {
+        return "不对";
+    }
+    }
+    console.log(testNum(5)); //对的
+
+
+
+    //while 语句可以在某个条件表达式为真的前提下，循环执行指定的一段代码，直到那个表达式不为真时结束循环。
+    let n = 0;
+    while (n < 3) {
+    n++;
+    }
+    console.log(n); //3
+
+
+
+    //switch 语句评估一个表达式，将表达式的值与case子句匹配，并执行与该情况相关联的语句。
+    //如果没有break语句，条件将继续执行下一个case
+    const expr = '王文琪';
+        switch (expr) {
+        case '王小强':
+            console.log('不好意思你不是第一');
+            break;
+        case '王小明':
+        case '王文琪':
+            console.log('你是第一');  //此句将被打印
+            break;
+        default:
+            console.log('不好意思再见');
+        }
+
+
+    //continue 声明终止当前循环或标记循环的当前迭代中的语句执行，并在下一次迭代时继续执行循环。
+    //在当前条件下不做处理，继续进行其他循环
+    let text = "";
+    for (let i = 0; i < 10; i++) {
+    if (i === 3) {
+        continue;  //等于3时，不做条件处理
+    }
+    text = text + i;
+    }
+    console.log(text);// "012456789"
+
+
+
+    //break条件满足终止循环
+    function testBreak(x) {
+        var i = 0;
+
+        while (i < 6) {
+            if (i == 3) {  //i等于3时终止循环
+            break;
+            }
+            i += 1;
+        }
+
+        return i * x;
+    }
+    console.log(testBreak(3)) //9
+
+
+
+</script>
+</html>

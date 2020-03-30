@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js声明</title>
+</head>
+<body>
+    <h1>js声明</h1>
+    <p>块语句，该块由一对大括号界定</p>
+</body>
+<script>
+  // 块语句，该块由一对大括号界定
+    let x = 1;
+        {
+        let x = 2;
+        }
+    console.log(x); // 输出 1
+
+
+
+    //class 声明创建一个基于原型继承的具有给定名称的新类。
+    class Polygon {
+    constructor(height, width) {
+        this.area = height * width;
+        }
+    }
+    console.log(new Polygon(4,3).area); //12
+
+
+
+    //debugger 语句调用任何可用的调试功能，例如设置断点。 如果没有调试功能可用，则此语句不起作用。
+    function potentiallyBuggyCode() {
+        debugger;
+    }
+
+
+    //export 语句用于从模块中导出函数、对象或原始值，以便其他程序可以通过 import 语句导入它们。
+    //默认导出（函数）：
+    export default function() {} 
+    //默认导出（类）：
+    export default class {} 
+
+
+
+    // import 语句用于导入由另一个模块导出的绑定。
+    //导入整个模块的内容
+    import * as myModule from '/modules/my-module.js';
+    //导入单个接口
+    import {myExport} from '/modules/my-module.js';
+
+    
+
+    //return语句终止函数的执行，并返回一个指定的值给函数调用者。
+    function square(x) {
+    return x * x;
+        }
+    square(3);//9
+
+  
+</script>
+</html>

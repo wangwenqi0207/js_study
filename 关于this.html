@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this学习</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //this的指向是调用时决定的
+    //this 永远指向最后调用它的那个对象
+    var name = "windowsName";
+    function a() {
+        var name = "Cherry";
+        console.log(this.name);  // windowsName
+        console.log(this);    // Window
+    }
+    a(); //window来调用的a函数，所以this指向window
+    console.log(this)  // Window
+
+
+
+    //谁调用的this指向谁，a2调用的this指向a2
+    var name2 = "windowsName";
+    var a2 = {
+        name2: "Cherry",
+        fn : function () {
+            console.log(this.name2); // Cherry
+        }
+    }
+    a2.fn(); //对象 a2 通过 . 方法调用了其中的 fn 方法。
+
+
+
+    //a3里面没有name3，所以找不到
+    var name3 = "windowsName";
+    var a3 = {
+        // name: "Cherry",
+        fn : function () {
+            console.log(this.name3);      // undefined
+        }
+    }
+    a3.fn();
+
+
+
+    //调用f()的是window
+    var name4 = "windowsName4";
+    var a4 = {
+        name4 : null,
+        // name: "Cherry",
+        fn : function () {
+            console.log(this.name4);      // windowsName4
+        }
+    }
+    var f = a4.fn;
+    f();
+
+
+    var name5 = "windowsName5";
+    function fn() {
+        var name5 = 'Cherry';
+        innerFunction();
+        function innerFunction() {
+            console.log(this.name5);      // windowsName5
+        }
+    }
+    fn()
+
+
+    // 改变 this 的指向有以下几种方法：
+    // 使用 ES6 的箭头函数
+    // 在函数内部使用 _this = this
+    // 使用 apply、call、bind
+    // new 实例化一个对象
+
+    var name6 = "windowsName6";
+    var a6 = {
+        name6 : "Cherry",
+
+        func1: function () {
+            console.log(this.name6)     
+        },
+
+        func2: function () {
+            setTimeout( ()=> {
+                console.log(this.name6)  //Cherry
+            },100);
+        }
+    };
+    a6.func2()
+  //--------------------------------------------
+    var name7 = "windowsName6";
+    var a7 = {
+        name7 : "Cherry",
+
+        func1: function () {
+            console.log(this.name7)     
+        },
+
+        func2: function () {
+            setTimeout( function() {
+                console.log(this.name7)  //windowsName6
+            },100);
+        }
+    };
+    a7.func2()
+
+
+    //使用 apply
+    var a8 = {
+        name8 : "Cherry",
+
+        func1: function () {
+            console.log(this.name8)
+        },
+
+        func2: function () {
+            setTimeout(  function () {
+                this.func1()
+            }.apply(a8),100);
+        }
+    };
+    a8.func2() // Cherry
+
+
+    //使用 call
+    var a9 = {
+        name : "Cherry",
+
+        func1: function () {
+            console.log(this.name)
+        },
+        func2: function () {
+            setTimeout(  function () {
+                this.func1()
+            }.call(a9),100);
+        }
+    };
+    a9.func2()   // Cherry
+
+
+
+    //使用bind()
+    var a10 = {
+        name : "Cherry",
+        func1: function () {
+            console.log(this.name)
+        },
+
+        func2: function () {
+            setTimeout(  function () {
+                this.func1()
+                console.log("func10")
+            }.bind(a10)(),100);
+        }
+    };
+    a10.func2() // Cherry
+
+ 
+
+    //bind 是创建一个新的函数，我们必须要手动去调用 才会执行
+    var a11 ={
+        name : "Cherry",
+        fn : function (a,b) {
+            console.log( a + b)
+        }
+    }
+    var b = a11.fn;
+    b.bind(a11,1,2)()  // 3
+</script>
+</html>

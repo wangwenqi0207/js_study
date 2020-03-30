@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Promise.all</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //将多个promise以数组的形式加入Promise.all队列中
+    //队列中每个返回成功，Promise.all结果返回每个成功值
+    //队列有一个返回失败，那么整个Promise.all结果返回失败
+    let p1= new Promise((resolve,reject)=>{
+        resolve("第一个")
+        //reject("失败了")
+    });
+
+    let p2 = new Promise((resolve,reject)=>{
+        resolve("第二个")
+    });
+
+    Promise.all([p1,p2]).then(result=>{
+        console.log('成功结果',result)
+    }).catch(error=>{
+        console.log(error)
+    });
+</script>
+</html>

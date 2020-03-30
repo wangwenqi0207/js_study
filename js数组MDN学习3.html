@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>数组方法3</h1>
+    <p>forEach循环</p>
+    <p>every() 方法测试一个数组内的所有元素是否都能通过某个指定函数的测试。它返回一个布尔值。</p>
+    <p>some() 方法测试数组中是不是至少有1个元素通过了被提供的函数测试</p>
+    <p>filter() 方法创建一个新数组, 其包含通过所提供函数实现的测试的所有元素。</p>
+</body>
+<script>
+    var fruits = ['香蕉', '芒果','橘子','荔枝','樱桃'];
+    //使用forEach循环 接收两个参数 数组的值和下标
+    fruits.forEach(function (item, index) {
+        // console.log(item, index);
+        // 香蕉 0
+        // 芒果 1
+        // 橘子 2
+        // 荔枝 3
+        // 樱桃 4
+    });
+
+
+    //every() 方法测试一个数组内的所有元素是否都能通过某个指定函数的测试。它返回一个布尔值。
+    const isBelowThreshold =function(currentValue){
+        return currentValue < 40 
+    };
+    const array1 = [1, 30, 39, 29, 10, 13];
+    console.log(array1.every(isBelowThreshold)); //true
+
+
+    //some() 方法测试数组中是不是至少有1个元素通过了被提供的函数测试。
+    //它返回的是一个Boolean类型的值
+    //如果用一个空数组进行测试，在任何情况下它返回的都是false。
+    const array = [1, 2, 3, 4, 5];
+    const even = (element) => element % 2 === 0;
+    console.log(array.some(even)); //true
+
+
+    //filter() 方法创建一个新数组, 其包含通过所提供函数实现的测试的所有元素。
+    const words = ['啦啦啦啦啦啦啦', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+    const result = words.filter(word => word.length > 6);
+    console.log(result); //["啦啦啦啦啦啦啦", "exuberant", "destruction", "present"]
+
+
+    //map() 方法创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果。
+    var numbers = [2, 4, 6];
+    var doubles = numbers.map(function(num,index) {
+    console.log(index) //0,1,2
+    return num * 2;
+    });
+    console.log(doubles); //[4, 8, 12]
+</script>
+</html>

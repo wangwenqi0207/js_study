@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>then</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //then()方法接收两个参数，第一个成功执行的逻辑，第二个失败执行的逻辑
+    //通过resolve和reject来判断成功和失败then该执行哪一个参数逻辑
+    //then也会返回一个promise
+  new Promise((resolve,reject)=>{
+        //resolve("成功")
+        reject("失败了")
+  }).then(
+      value=>{
+          console.log(value+"买到了");
+      },
+      reason=>{
+          console.log(reason+"买不起")
+      }
+  )
+
+//如果执行的是resolve，并且在then里return值，那么下面的then是可以接收到上面then里的return值的
+//后面的then就是对前面return的值的处理，例如要先请求到学生姓名，根据姓名返回值，请求学生课程
+      let p1 = new Promise((resolve,reject)=>{
+            resolve()
+      }).then(
+          value=>{
+              return "天气晴了万里无云";
+          },
+          reason=>console.log('error'+reason)
+      ).then(value=>{
+          console.log(value)
+      })
+</script>
+</html>

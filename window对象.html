@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window对象</title>
+</head>
+<body>
+    <h1>Window对象 </h1>
+</body>
+<script>
+    //此属性表示窗口是否以全屏显示。
+    Window.fullScreen
+
+
+    //返回一个对 history 对象的引用。
+    Window.history
+    //history.back();     // 等同于点击浏览器的回退按钮
+    //history.go(-1);     //等同于history.back();
+
+
+
+    //获得浏览器窗口的内容区域的高度，包含水平滚动条(如果有的话)。
+    Window.innerHeight
+
+
+    //获得浏览器窗口的内容区域的宽度，包含垂直滚动条(如果有的话)。
+    Window.innerWidth
+
+
+    //获取、设置 window 对象的 location, 或者当前的 URL.
+    Window.location
+
+
+    //动态调整窗口的大小。
+    //window.resizeTo(aWidth, aHeight) 
+
+
+    // 只读的localStorage 属性允许你访问一个Document 源（origin）的对象 Storage；存储的数据将保存在浏览器会话中。
+    // localStorage 类似 sessionStorage，但其区别在于：存储在 localStorage 的数据可以长期保留；
+    // 而当页面会话结束——也就是说，当页面被关闭时，存储在 sessionStorage 的数据会被清除 。
+    localStorage.setItem('myCat', 'Tina');
+    sessionStorage.setItem('喜欢的颜色', 'yellow');
+
+
+    //获取/设置窗口的名称。
+    window.name = "Winter Wang";
+
+
+    // 只读属性 Window.navigator 会返回一个 Navigator 对象的引用，
+    // 可以用于请求运行当前代码的应用程序的相关信息。
+    window.navigator
+
+
+    //将当前窗口移动到指定的坐标位置。
+    function origin() {
+    // 把窗口移动到坐上角
+    window.moveTo(0, 0);
+    }
+
+    //返回文档在垂直方向已滚动的像素值。
+    window.scrollY
+
+
+    //返回文档/页面水平方向滚动的像素值。
+    window.scrollX
+</script>
+</html>

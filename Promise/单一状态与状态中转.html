@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>单一状态与状态中转</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //将p1这个promise作为值传入另一个promise的resolve结果中，返回一个promise
+    //p1的resolve和reject结果影响另一个promise的执行
+    //promise的状态改变之后，就不会再执行后面的状态，从上至下执行
+    //例如先执行了resolve状态，后面写了reject也不会再去执行了
+    let p1 = new Promise((resolve,reject)=>{
+        resolve("成功")
+        //reject("失败")
+    });
+
+    let p2 = new Promise((resolve,reject)=>{
+        resolve(p1)
+    }).then(
+        msg=>{
+        console.log(msg+"成功了")
+    },
+        error=>{
+        console.log(error+"失败了")
+        }
+    )
+
+</script>
+</html>

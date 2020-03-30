@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>找出字符串中连续出现最多的字符和个数</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //首先写一个函数，传入一个字符串
+    function getMaxCharacters(str) {
+        const map = {}
+        //match() 方法可在字符串内检索指定的值，或找到一个或多个正则表达式的匹配。
+        var arr = str.match(/(\w)\1+/g)
+        var max = arr[0].length
+        arr.map(v => max = Math.max(max, v.length))
+        const maxArr = arr.filter(v => v.length === max)
+        maxArr.forEach(v => {
+            map[v[0]] = v.length
+        })
+        return map
+    }
+ 
+    getMaxCharacters('abcaakjbb')  // { a: 2, b: 2 }
+ 
+    console.log(getMaxCharacters('abcaakjbb'))
+
+</script>
+</html>

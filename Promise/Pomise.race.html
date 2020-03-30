@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomise.race</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //Promise.race创建一个队列，接收先成功的promise的返回结果
+    //先返回成功，则整个队列成功，先返回失败，则整个队列失败
+
+    let p1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('成功了')
+        }, 2000);
+    })
+
+    let p2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('success')    
+        }, 1000);
+    })
+
+
+    Promise.race([p1, p2]).then((result) => {
+        console.log('result',result)  //['success']
+        }).catch((error) => {
+        console.log('error',error)
+    })
+</script>
+</html>

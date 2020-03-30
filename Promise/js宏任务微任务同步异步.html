@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>宏任务微任务同步异步</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //必须用resolve()函数调用then里面内容的执行，否则then的内容不会执行
+    //遇到resolve，队列会把then加入微任务等待执行
+    //主线程先执行，执行完毕，轮询微任务，然后轮询宏任务
+    //console.log
+    //setTimeout
+    //then
+    let pro =new Promise((resolve)=>{
+        setTimeout(()=>{
+             resolve("promise成功");
+             console.log('setTimeout');
+        },0)
+    }).then(value=>
+        console.log("then")
+    )
+
+    console.log("console.log")
+</script>
+</html>

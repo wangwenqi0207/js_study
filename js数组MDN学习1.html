@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>数组方法1</h1>
+    <p>push添加元素到数组的末尾，改变原数组</p>
+    <p>pop删除数组末尾的元素，改变原数组</p>
+    <p>shift删除数组最前面的元素，改变原数组</p>
+    <p>unshift添加元素到数组的头部，改变原数组</p>
+    <p>reverse将数组中元素的位置颠倒</p>
+    <p>indexOf找出某个元素在数组中的索引</p>
+    <p>splice通过索引删除某个元素 第一个参数是下标 第二个参数是删除几个，改变原数组</p>
+    <p>from伪数组解析成一个数组</p>
+    <p>isArray确定传递的值是否是一个Array</p>
+</body>
+<script>
+    //定义一个数组
+    var fruits = ['香蕉', '芒果','橘子','荔枝','樱桃'];
+
+
+    //添加元素到数组的末尾，改变原数组
+    var newLength = fruits.push('香橙');
+    //console.log(newLength) //6
+    //console.log(fruits) //["香蕉", "芒果", "橘子", "荔枝", "樱桃", "香橙"]
+
+    //删除数组末尾的元素，改变原数组
+    var last = fruits.pop()
+    //console.log(last)//香橙
+    //console.log(fruits) //["香蕉", "芒果", "橘子", "荔枝", "樱桃"]
+
+    //删除数组最前面的元素，改变原数组
+    var first = fruits.shift(); 
+    //console.log(fruits) //["芒果", "橘子", "荔枝", "樱桃"]
+
+
+    //添加元素到数组的头部，改变原数组
+    var newLength = fruits.unshift('草莓') 
+    //console.log(fruits) // ["草莓", "芒果", "橘子", "荔枝", "樱桃"]
+
+
+    //reverse() 方法将数组中元素的位置颠倒，并返回该数组。数组的第一个元素会变成最后一个，数组的最后一个元素变成第一个。
+    //改变原数组
+    console.log(fruits.reverse()) //["樱桃", "荔枝", "橘子", "芒果", "草莓"]
+
+
+    //找出某个元素在数组中的索引
+    var pos = fruits.indexOf('香蕉');
+    //console.log(pos) //-1 即不存在这个元素
+
+
+    //通过索引删除某个元素 第一个参数是下标 第二个参数是删除几个，改变原数组
+    var removedItem = fruits.splice(1, 1)
+    //console.log(fruits) //["草莓", "橘子", "荔枝", "樱桃"]
+
+
+    //Array.from() 方法从一个类似数组或可迭代对象创建一个新的，浅拷贝的数组实例。
+    //非数组解析成一个数组
+    console.log(Array.from('foo')); // ["f", "o", "o"]
+
+
+    //Array.isArray() 用于确定传递的值是否是一个 Array。
+    console.log(Array.isArray([1, 2, 3]));  //true
+
+   
+</script>
+</html>

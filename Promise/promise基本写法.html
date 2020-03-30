@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+<body>
+    
+</body>
+<script>
+   // pending 准备阶段
+   //resolve成功状态
+   //reject失败状态
+   //then是resolve或者reject给出结果后的处理逻辑，如不给出结果，then不执行 
+   // 同步先执行，再执行异步
+   //finally无论成功或者失败都会执行
+    console.log(
+        new Promise((resolve,reject)=>{
+        //resolve('成功');
+        reject('失败')
+    })
+    // .then(value=>{
+    //     console.log("resolve成功时业务处理1")
+    // },reason=>{
+    //     console.log("reject拒绝的业务处理1")
+    // })
+    // .then(value=>{
+    //     console.log("resolve成功时业务处理2")
+    // },reason=>{
+    //     console.log("reject拒绝的业务处理2")
+    // })
+    .finally(()=>{
+        console.log("永远会执行，可以用做loading")
+    })
+    .catch(error=>{
+        console.log('我是catch捕捉的错误',error)
+    })
+    )
+</script>
+</html>

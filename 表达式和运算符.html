@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表达式和运算符</title>
+</head>
+<body>
+    <h1>表达式和运算符</h1>
+    <p>条件（三元）运算符是 JavaScript 仅有的使用三个操作数的运算符。</p>
+    <p>解构赋值语法是一种 Javascript 表达式。通过解构赋值, 可以将属性/值从对象/数组中取出,赋值给其他变量。</p>
+    <p></p>
+</body>
+<script>
+    //条件（三元）运算符是 JavaScript 仅有的使用三个操作数的运算符。
+    //一个条件后面会跟一个问号（?），如果条件为 true ，则问号后面的表达式A将会执行；
+    //表达式A后面跟着一个冒号（:），如果条件为 false ，则冒号后面的表达式B将会执行。
+    isMember ? '$2.00' : '$10.00'
+
+
+    //解构赋值语法是一种 Javascript 表达式。通过解构赋值, 
+    //可以将属性/值从对象/数组中取出,赋值给其他变量。
+    let a, b ;
+    [a, b] = [10, 20];
+
+    [a, b, ...rest] = [10, 20, 30, 40, 50];
+    console.log(rest); //[30, 40, 50]
+
+
+
+    //展开语法(Spread syntax), 可以在函数调用/数组构造时, 将数组表达式或者string在语法层面展开；
+    const numbers = [1, 2, 3];
+    console.log(...numbers);
+
+
+
+    //super关键字用于访问和调用一个对象的父对象上的函数。
+    super([arguments]); 
+</script>
+</html>

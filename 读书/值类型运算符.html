@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>值 类型 运算符</title>
+</head>
+
+<body>
+    <p>余数运算符%的优先级与乘法除法相同</p>
+    <p>除法 (/)运算符的结果是操作数的商 ，左操作数是被除数，右操作数是除数。</p>
+    <p>幂 (**)即乘方</p>
+    <div>
+        递增 (++)
+        <li>如果使用后置（postfix），即运算符位于操作数的后面（如 x++），那么将会在递增前返回数值。</li>
+        <li>如果使用前置（prefix），即运算符位于操作数的前面（如 ++x），那么将会在递增后返回数值。</li>
+    </div>
+    <div>
+        递减 (--)
+        <li>如果后置使用（如 x--），则在递减前返回数值。</li>
+        <li>如果前置使用（如 --x），则在递减后返回数值。</li>
+    </div>
+    <p>一元负号 (-)一元负号运算符位于操作数前面，并转换操作数的符号。</p>
+    <p>一元正号 (+)一元正号运算符位于其操作数前面，计算其操作数的数值，如果操作数不是一个数值，会尝试将其转换成一个数值。如果它不能解析一个值，则计算结果为 NaN。</p>
+    <p>全局属性 NaN 的值表示不是一个数字，NaN与任何一个值都不想等</p>
+</body>
+
+</html>
+<script>
+    window.onload = function () {
+        console.log(true + 1) //2
+        console.log(false + false) //0
+        5 + "foo" // "5foo"
+        console.log("5" - 1) //4
+        "foo" - 3 //NaN
+
+        1 / 2 // 在 JavaScript 中返回 0.5
+
+        Infinity * 0 // NaN
+        Infinity * Infinity // Infinity
+        "foo" * 2 // NaN
+
+        2 ** 3 // 8
+        3 ** 2 // 9
+
+
+        // 后置 
+        var x = 3;
+        y = x++;
+        // y = 3, x = 4
+
+        // 前置
+        var a = 2;
+        b = ++a;
+        // a = 3, b = 3
+
+        var x = 3;
+        y = -x; // y = -3, x = 3
+
+        +3     // 3
+        +"3"   // 3
+        +true  // 1
+        +false // 0
+        +null  // 0
+        +function(val){ return val;} //NaN
+
+
+        NaN === NaN;        // false
+        Number.NaN === NaN; // false
+        isNaN(NaN);         // true
+        isNaN(Number.NaN);  // true
+        //请注意isNaN（）和Number.isNaN（）之间的区别：
+        //如果当前值是NaN，或者将其强制转换为数字后将是NaN，则前者将返回true。而后者仅当值当前为NaN时才为true：
+        isNaN('hello world');        // true
+        Number.isNaN('hello world'); // false
+
+
+        // ||或操作符 当你的值存在，return你的值，不存在设置为空
+        var a ='cat'
+        if(a){
+            console.log("miao~" || '') 
+        }
+    }
+</script>
